@@ -30,6 +30,7 @@ export default function index() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        Alert.alert("Success", "You have been signed in successfully");
         // ...
       })
       .catch((error) => {
@@ -54,9 +55,9 @@ export default function index() {
         <Text style={styles.heading}>Lets Sign You In</Text>
         <Text style={styles.subheading}>Welcome Back!</Text>
         <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Email</Text>
-        <TextInput onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={false} onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
         <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
-        <TextInput onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={false} onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
       </KeyboardAvoidingView>
       <View style={styles.button}>
         <TouchableOpacity onPress={onLogin} style={styles.buttonContent}>

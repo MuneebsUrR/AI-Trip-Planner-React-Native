@@ -59,9 +59,9 @@ export default function index() {
         <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Full Name</Text>
         <TextInput onChangeText={(value) => setFullName(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
         <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Email</Text>
-        <TextInput onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={false} onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
         <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
-        <TextInput onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={false} onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
       </KeyboardAvoidingView>
       <View style={styles.button}>
         <TouchableOpacity onPress={onCreateAccount} style={styles.buttonContent}>
