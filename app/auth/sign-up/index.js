@@ -20,7 +20,7 @@ export default function index() {
 
   const onCreateAccount = () => {
     if (Email === '' || Password === '' || FullName === '') {
-       Alert.alert('Please fill all the fields')
+      Alert.alert('Please fill all the fields')
       return
     }
 
@@ -48,27 +48,28 @@ export default function index() {
   }
 
   return (
-    <KeyboardAvoidingView behavior='padding' style={{ padding: StatusBar.currentHeight }}>
+    <View style={{ padding: StatusBar.currentHeight }}>
       <View>
         <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 10 }}>
           <Ionicons name="arrow-back" size={30} color="black" />
 
         </TouchableOpacity>
       </View>
-
-      <Text style={styles.heading}>Sign Up</Text>
-      <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Full Name</Text>
-      <TextInput onChangeText={(value) => setFullName(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
-      <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Email</Text>
-      <TextInput onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
-      <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
-      <TextInput onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
-
+      <KeyboardAvoidingView behavior='position'>
+        <Text style={styles.heading}>Sign Up</Text>
+        <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Full Name</Text>
+        <TextInput onChangeText={(value) => setFullName(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Email</Text>
+        <TextInput onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
+        <TextInput onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+      </KeyboardAvoidingView>
       <View style={styles.button}>
         <TouchableOpacity onPress={onCreateAccount} style={styles.buttonContent}>
           <Text style={styles.buttonText}>Create Account</Text>
         </TouchableOpacity>
       </View>
+
 
 
 
@@ -88,7 +89,7 @@ export default function index() {
           }}>Sign in</Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+    </View>
   )
 }
 

@@ -1,4 +1,4 @@
-import { View, Text, StatusBar, StyleSheet, TextInput, TouchableOpacity, Alert,KeyboardAvoidingView } from 'react-native'
+import { View, Text, StatusBar, StyleSheet, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 
 import { useNavigation } from 'expo-router'
@@ -22,7 +22,7 @@ export default function index() {
   }, [])
   const onLogin = () => {
     if (Email === '' || Password === '') {
-       Alert.alert('Please fill all the fields')
+      Alert.alert('Please fill all the fields')
       return
     }
 
@@ -43,20 +43,21 @@ export default function index() {
 
   }
   return (
-    <KeyboardAvoidingView behavior='padding' style={{ padding: StatusBar.currentHeight }}>
+    <View style={{ padding: StatusBar.currentHeight }}>
       <View>
         <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 10 }}>
           <Ionicons name="arrow-back" size={30} color="black" />
 
         </TouchableOpacity>
       </View>
-      <Text style={styles.heading}>Lets Sign You In</Text>
-      <Text style={styles.subheading}>Welcome Back!</Text>
-      <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Email</Text>
-      <TextInput onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
-      <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
-      <TextInput onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
-
+      <KeyboardAvoidingView behavior='position'>
+        <Text style={styles.heading}>Lets Sign You In</Text>
+        <Text style={styles.subheading}>Welcome Back!</Text>
+        <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Email</Text>
+        <TextInput onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
+        <TextInput onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+      </KeyboardAvoidingView>
       <View style={styles.button}>
         <TouchableOpacity onPress={onLogin} style={styles.buttonContent}>
           <Text style={styles.buttonText}>Sign In</Text>
@@ -77,7 +78,7 @@ export default function index() {
           <Text style={styles.buttonText}>Create New Account</Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+    </View>
   )
 }
 
