@@ -34,7 +34,7 @@ export default function index() {
           [
             {
               text: "OK",
-              onPress: () => router.push('/auth/sign-in')
+              onPress: () => router.replace('/auth/sign-in')
             }
           ]
         );
@@ -49,7 +49,7 @@ export default function index() {
   return (
     <View style={{ padding: StatusBar.currentHeight }}>
       <View>
-        <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 10 }}>
+        <TouchableOpacity onPress={() => router.replace('/')} style={{ marginTop: 10 }}>
           <Ionicons name="arrow-back" size={30} color="black" />
 
         </TouchableOpacity>
@@ -59,9 +59,9 @@ export default function index() {
         <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Full Name</Text>
         <TextInput onChangeText={(value) => setFullName(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
         <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Email</Text>
-        <TextInput autoCapitalize={false} onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={'none'} onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
         <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
-        <TextInput autoCapitalize={false} onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={'none'} onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
       </KeyboardAvoidingView>
       <View style={styles.button}>
         <TouchableOpacity onPress={onCreateAccount} style={styles.buttonContent}>
@@ -80,7 +80,7 @@ export default function index() {
         borderColor: 'black',
         borderWidth: 2
       }}>
-        <TouchableOpacity onPress={() => router.push('/auth/sign-in')} style={styles.buttonContent}>
+        <TouchableOpacity onPress={() => router.replace('/auth/sign-in')} style={styles.buttonContent}>
           <Text style={{
             fontSize: 18,
             color: 'black',

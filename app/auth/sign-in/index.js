@@ -30,7 +30,7 @@ export default function index() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        Alert.alert("Success", "You have been signed in successfully");
+        router.replace('/MyTrip')
         // ...
       })
       .catch((error) => {
@@ -46,7 +46,7 @@ export default function index() {
   return (
     <View style={{ padding: StatusBar.currentHeight }}>
       <View>
-        <TouchableOpacity onPress={() => router.push('/')} style={{ marginTop: 10 }}>
+        <TouchableOpacity onPress={() => router.replace('/')} style={{ marginTop: 10 }}>
           <Ionicons name="arrow-back" size={30} color="black" />
 
         </TouchableOpacity>
@@ -55,9 +55,9 @@ export default function index() {
         <Text style={styles.heading}>Lets Sign You In</Text>
         <Text style={styles.subheading}>Welcome Back!</Text>
         <Text style={{ color: "black", fontSize: 20, marginTop: 50 }}>Email</Text>
-        <TextInput autoCapitalize={false} onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={'none'} onChangeText={(value) => setEmail(value)} placeholder="Enter Email" style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
         <Text style={{ color: "black", fontSize: 20, marginTop: 20 }}>Password</Text>
-        <TextInput autoCapitalize={false} onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
+        <TextInput autoCapitalize={'none'} onChangeText={(value) => setPassword(value)} placeholder="Enter Password" secureTextEntry={true} style={{ backgroundColor: 'white', padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 2 }} />
       </KeyboardAvoidingView>
       <View style={styles.button}>
         <TouchableOpacity onPress={onLogin} style={styles.buttonContent}>
@@ -75,7 +75,7 @@ export default function index() {
       </View>
 
       <View style={styles.button}>
-        <TouchableOpacity onPress={() => router.push('/auth/sign-up')} style={styles.buttonContent}>
+        <TouchableOpacity onPress={() => router.replace('/auth/sign-up')} style={styles.buttonContent}>
           <Text style={styles.buttonText}>Create New Account</Text>
         </TouchableOpacity>
       </View>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     color: 'black',
     borderWidth: 2,
-    padding: 15,
+    padding: 12,
     borderRadius: 25,
     marginTop: 10,
   },

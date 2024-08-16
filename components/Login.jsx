@@ -18,7 +18,7 @@ export default function Login() {
                 <Text style={styles.heading}>AI Travel Planner</Text>
                 <Text style={styles.subHeading}>Discover your next adventure effortlessly. Personalized itineraries at your fingertips. Travel smarter with AI-driven insights.</Text>
                 <View style={styles.button}>
-                    <TouchableOpacity onPress={() => router.push('/auth/sign-in')} style={styles.buttonContent}>
+                    <TouchableOpacity onPress={() => router.replace('/auth/sign-in')} style={styles.buttonContent}>
                         <Text style={styles.buttonText}>Get Started</Text>
 
                     </TouchableOpacity>
