@@ -22,7 +22,7 @@ export default function index() {
   }, [])
   const onLogin = () => {
     if (Email === '' || Password === '') {
-      Alert.alert('Please fill all the fields')
+      Alert.alert('Error', 'Please fill all the fields');
       return
     }
 
@@ -35,7 +35,7 @@ export default function index() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        Alert.alert(errorMessage)
+        Alert.alert("Error", errorMessage);
       });
   }
 

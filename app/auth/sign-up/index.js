@@ -20,7 +20,7 @@ export default function index() {
 
   const onCreateAccount = () => {
     if (Email === '' || Password === '' || FullName === '') {
-      Alert.alert('Please fill all the fields')
+      Alert.alert('Error', 'Please fill all the fields');
       return
     }
 
@@ -28,22 +28,21 @@ export default function index() {
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        Alert.alert({
-          title: "Account Created",
-          message: "Your account has been created successfully",
-          buttons: [
+        Alert.alert(
+          "Account Created",
+          "Your account has been created successfully",
+          [
             {
               text: "OK",
               onPress: () => router.push('/auth/sign-in')
             }
           ]
-        })
-        // ...
+        );
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        Alert.alert(errorMessage)
+        Alert.alert("Error", errorMessage);
       })
   }
 
