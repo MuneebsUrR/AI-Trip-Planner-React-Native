@@ -16,10 +16,10 @@ export default function TabLayout() {
                     tabBarLabel:'My Trips',
                 }} />
                 <Tabs.Screen name='Discover' options={{
-                    tabBarIcon:({color})=><Ionicons name="paper-plane-outline" size={24} color={color} />
+                    tabBarIcon:({color})=><Ionicons name="globe-outline" size={24} color={color} />
                 }}  />
                 <Tabs.Screen name='Profile' options={{
-                    tabBarIcon:({color})=><Ionicons name="paper-plane-outline" size={24} color={color} />
+                    tabBarIcon:({color})=><Ionicons name="person-outline" size={24} color={color} />
                 }} />
             </Tabs>
         </View>
