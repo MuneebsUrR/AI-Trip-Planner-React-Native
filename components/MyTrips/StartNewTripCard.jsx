@@ -35,7 +35,8 @@ export default function StartNewTripCard() {
                 backgroundColor: Colors.PRIMARY,
                 borderRadius: 15,
                 padding: 15,
-                paddingHorizontal: 20,
+                paddingHorizontal: 25,
+                marginTop:10
 
             }} >
                 <Text style={{

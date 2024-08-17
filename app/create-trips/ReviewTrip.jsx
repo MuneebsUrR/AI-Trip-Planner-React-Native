@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, StyleSheet,TouchableOpacity } from 'react-native'
 import React, { useContext, useLayoutEffect } from 'react'
-import { useNavigation } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
 import moment from 'moment';
 import { CreateTripContext } from '../../context/CreateTripContext';
 import { Colors } from '../../constants/Colors';
@@ -107,7 +107,7 @@ export default function ReviewTrip() {
 
             </View>
 
-            <TouchableOpacity style={{ borderRadius: 15, padding: 15, backgroundColor: Colors.PRIMARY, marginTop: 35 }}>
+            <TouchableOpacity onPress={()=>router.push('create-trips/GenerateTrip')} style={{ borderRadius: 15, padding: 15, backgroundColor: Colors.PRIMARY, marginTop: 35 }}>
                 <Text style={{ fontFamily: 'outfit-medium', color: 'white', textAlign: 'center', fontSize: 20 }}>Build My Trip</Text>
             </TouchableOpacity>
 
