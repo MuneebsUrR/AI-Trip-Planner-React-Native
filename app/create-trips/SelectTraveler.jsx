@@ -1,9 +1,10 @@
 import { View, Text, StyleSheet, StatusBar, FlatList, TouchableOpacity } from 'react-native'
 import React, { useContext, useEffect, useLayoutEffect } from 'react'
-import { useNavigation } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
 import { SelectTravelerOptions } from '../../constants/Options';
 import CreateOptionCard from '../../components/CreateTrip/CreateOptionCard';
 import { CreateTripContext } from '../../context/CreateTripContext';
+import { Colors } from '../../constants/Colors';
 export default function SelectTraveler() {
   const navigation = useNavigation();
 
@@ -17,15 +18,21 @@ export default function SelectTraveler() {
 
   }, [])
 
-  const [selectedTraveler, setSelectedTraveler] = React.useState('')
+  const [selectedTraveler, setSelectedTraveler] = React.useState(null);
   const { tripData, setTripData } = useContext(CreateTripContext);
 
-  useEffect(() => {
+  const onCLickContinue = () => {
+    if (!selectedBudget) {
+        Alert.alert("Warning", "Please select the budget option")
+        return;
+    }
+
     setTripData({
       ...tripData,
       TravelerOption: selectedTraveler
     })
-  }, [selectedTraveler])
+
+}
 
   return (
     <View style={styles.container}>
@@ -38,10 +45,16 @@ export default function SelectTraveler() {
         data={SelectTravelerOptions}
         keyExtractor={(item) => { item.id.toString() }}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => setSelectedTraveler(item.title)} style={{ marginVertical: 15 }} >
-            <CreateOptionCard option={item} selectedTraveler={selectedTraveler} />
+          <TouchableOpacity onPress={() => setSelectedTraveler(item.title)} style={{ marginVertical: 12 }} >
+            <CreateOptionCard option={item} selectedOption={selectedTraveler} />
           </TouchableOpacity>
         )}
+        ListFooterComponent=
+        {
+          <TouchableOpacity onPress={onCLickContinue} style={{ borderRadius: 15, padding: 15, backgroundColor: Colors.PRIMARY }}>
+            <Text style={{ fontFamily: 'outfit-medium', color: 'white', textAlign: 'center', fontSize: 20 }}>Continue</Text>
+          </TouchableOpacity>
+        }
       />
 
     </View>
