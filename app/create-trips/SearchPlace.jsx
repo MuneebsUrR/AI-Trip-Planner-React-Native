@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, StatusBar } from 'react-native'
 import React, { useContext, useLayoutEffect } from 'react'
-import { useNavigation } from 'expo-router'
+import { router, useNavigation } from 'expo-router'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { CreateTripContext } from '../../context/CreateTripContext';
 export default function SearchPlace() {
@@ -33,9 +33,11 @@ export default function SearchPlace() {
                             url:details?.url
                         }
                     })
+
+                    router.push('/create-trips/SelectTraveler')
                 }}
                 query={{
-                    key: process.env.EXPO_PUBLIC_GOOGLE_MAPS_KE,
+                    key: process.env.EXPO_PUBLIC_GOOGLE_MAPS_KEY,
                     language: 'en',
                 }}
                 styles={{textInputContainer:{
