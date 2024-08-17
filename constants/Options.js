@@ -32,7 +32,7 @@ export const SelectTravelerOptions = [
 export const BudgetOptions = [
     {
         id: 0,
-        title: 'Cheap',
+        title: 'Economical',
         icon: '💸',
         desc: 'Affordable and budget-friendly.',
     },

@@ -32,6 +32,8 @@ export default function SelectBudget() {
             budget: selectedBudget,
         })
 
+        router.push('/create-trips/ReviewTrip')
+       
     }
     return (
         <View style={styles.container}>
@@ -42,7 +44,7 @@ export default function SelectBudget() {
 
             <FlatList
                 data={BudgetOptions}
-                keyExtractor={(item) => { item.id.toString() }}
+                keyExtractor={(item) => { item.id }}
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => setSelectedBudget(item.title)} style={{ marginVertical: 12 }} >
                         <CreateOptionCard option={item} selectedOption={selectedBudget} />
@@ -50,7 +52,7 @@ export default function SelectBudget() {
                 )}
                 ListFooterComponent=
                 {
-                    <TouchableOpacity onPress={onCLickContinue} style={{ borderRadius: 15, padding: 15, backgroundColor: Colors.PRIMARY }}>
+                    <TouchableOpacity onPress={onCLickContinue} style={{ borderRadius: 15, padding: 15, backgroundColor: Colors.PRIMARY,marginTop:15 }}>
                         <Text style={{ fontFamily: 'outfit-medium', color: 'white', textAlign: 'center', fontSize: 20 }}>Continue</Text>
                     </TouchableOpacity>
                 }

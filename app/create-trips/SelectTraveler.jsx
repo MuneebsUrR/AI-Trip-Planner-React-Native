@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, StatusBar, FlatList, TouchableOpacity } from 'react-native'
+import { View,Alert, Text, StyleSheet, StatusBar, FlatList, TouchableOpacity } from 'react-native'
 import React, { useContext, useEffect, useLayoutEffect } from 'react'
 import { router, useNavigation } from 'expo-router';
 import { SelectTravelerOptions } from '../../constants/Options';
@@ -22,8 +22,8 @@ export default function SelectTraveler() {
   const { tripData, setTripData } = useContext(CreateTripContext);
 
   const onCLickContinue = () => {
-    if (!selectedBudget) {
-        Alert.alert("Warning", "Please select the budget option")
+    if (!selectedTraveler) {
+        Alert.alert("Warning", "Please select the traveler option")
         return;
     }
 
@@ -31,6 +31,7 @@ export default function SelectTraveler() {
       ...tripData,
       TravelerOption: selectedTraveler
     })
+    router.push('/create-trips/SelectDate')
 
 }
 
@@ -43,7 +44,7 @@ export default function SelectTraveler() {
       </View>
       <FlatList
         data={SelectTravelerOptions}
-        keyExtractor={(item) => { item.id.toString() }}
+        keyExtractor={(item) => { item.id }}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => setSelectedTraveler(item.title)} style={{ marginVertical: 12 }} >
             <CreateOptionCard option={item} selectedOption={selectedTraveler} />

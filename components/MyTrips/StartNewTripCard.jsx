@@ -34,7 +34,7 @@ export default function StartNewTripCard() {
             <TouchableOpacity onPress={() => router.push('/create-trips/SearchPlace')} style={{
                 backgroundColor: Colors.PRIMARY,
                 borderRadius: 15,
-                padding: 10,
+                padding: 15,
                 paddingHorizontal: 20,
 
             }} >
