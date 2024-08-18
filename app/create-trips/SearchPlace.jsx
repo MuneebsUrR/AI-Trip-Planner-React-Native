@@ -26,11 +26,11 @@ export default function SearchPlace() {
                     console.log(details?.photos[0]?.photo_reference);
                     console.log(details?.url);
                     setTripData({
-                        locationInfo:{
-                            name:data.description,
-                            coordinates:details?.geometry.location,
-                            photoRef:details?.photos[0]?.photo_reference,
-                            url:details?.url
+                        locationInfo: {
+                            name: data.description,
+                            coordinates: details?.geometry.location,
+                            photoRef: details?.photos[0]?.photo_reference,
+                            url: details?.url
                         }
                     })
 
@@ -40,11 +40,13 @@ export default function SearchPlace() {
                     key: process.env.EXPO_PUBLIC_GOOGLE_MAPS_KEY,
                     language: 'en',
                 }}
-                styles={{textInputContainer:{
-                    borderWidth:1,
-                    borderRadius:5,
-                    marginTop:25,
-                }}}
+                styles={{
+                    textInputContainer: {
+                        borderWidth: 1,
+                        borderRadius: 5,
+                        marginTop: 25,
+                    }
+                }}
             />
 
         </View>
@@ -56,6 +58,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingTop: StatusBar.currentHeight + 60,
         padding: 25,
-        
+
     }
 })
