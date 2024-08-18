@@ -1,0 +1,31 @@
+{
+  "cli": {
+    "version": ">= 10.2.3"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_GEMINI_API": "AIzaSyBU_bG2e_m44J8upEkItste2Ozso9-EoiM",
+        "EXPO_PUBLIC_GOOGLE_MAPS_KEY": "AIzaSyDnC-IyOb0pEReF-Z9YVbBef8laHZxJsnE"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_GEMINI_API": "AIzaSyBU_bG2e_m44J8upEkItste2Ozso9-EoiM",
+        "EXPO_PUBLIC_GOOGLE_MAPS_KEY": "AIzaSyDnC-IyOb0pEReF-Z9YVbBef8laHZxJsnE"
+      }
+    },
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_GEMINI_API": "AIzaSyBU_bG2e_m44J8upEkItste2Ozso9-EoiM",
+        "EXPO_PUBLIC_GOOGLE_MAPS_KEY": "AIzaSyDnC-IyOb0pEReF-Z9YVbBef8laHZxJsnE"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

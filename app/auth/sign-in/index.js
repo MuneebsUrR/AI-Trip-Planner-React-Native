@@ -1,19 +1,55 @@
-import { View, Text, StatusBar, StyleSheet, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import { View, Text, StatusBar, StyleSheet, TextInput, TouchableOpacity, Alert, KeyboardAvoidingView, Image } from 'react-native'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 
 import { useNavigation } from 'expo-router'
 import { Colors } from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
 import { auth } from '../../../configs/FirebaseConfig';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+import * as Google from 'expo-auth-session/providers/google';
+import * as WebBrowser from 'expo-web-browser';
 
+WebBrowser.maybeCompleteAuthSession();
 
 export default function index() {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    webClientId: '125804255437-mg26jdvk93goabtpnrjk6mg057ah6ep6.apps.googleusercontent.com',
+    androidClientId: '125804255437-v2g1dlbmj3t5mnpe3bujg2b558vduc5u.apps.googleusercontent.com',
+  });
   const navigation = useNavigation();
 
+
+
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const { id_token } = response.params;
+      const credential = GoogleAuthProvider.credential(id_token);
+      signInWithCredential(auth, credential)
+        .then((userCredential) => {
+          // User signed in
+          const user = userCredential.user;
+          console.log('User signed in:', user);
+          router.replace('/MyTrip');
+        })
+        .catch((error) => {
+          console.error('Error signing in with Google:', error);
+          Alert.alert('Error', 'Failed to sign in with Google');
+        });
+    }
+  }, [response]);
+
+
+  const googleSignIn = async () => {
+    try {
+      await promptAsync();
+    } catch (error) {
+      console.error('Error during Google Sign-In:', error);
+      Alert.alert('Error', 'An error occurred during Google Sign-In');
+    }
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -40,9 +76,7 @@ export default function index() {
       });
   }
 
-  const onLoginWithGoogle = () => {
 
-  }
   return (
     <View style={{ padding: StatusBar.currentHeight }}>
       <View>
@@ -66,10 +100,10 @@ export default function index() {
       </View>
 
       <View style={styles.googleButton}>
-        <TouchableOpacity onPress={onLoginWithGoogle} style={styles.buttonContent}>
+        <TouchableOpacity onPress={googleSignIn} style={styles.buttonContent}>
           <View style={styles.iconTextWrapper}>
             <Text style={styles.googleButtonText}>Sign In with Google</Text>
-            <Ionicons name="logo-google" size={24} color="black" />
+           <Image source={require('../../../assets/images/googleicon.png')} style={{ width: 30, height: 30 }} />
           </View>
         </TouchableOpacity>
       </View>

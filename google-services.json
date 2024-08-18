@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "452362569397",
+    "project_id": "react-native-projects-9489c",
+    "storage_bucket": "react-native-projects-9489c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452362569397:android:8a04fc17f732c3972320fc",
+        "android_client_info": {
+          "package_name": "com.vanilla_icee.aitravelplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452362569397-re4i0tiq5qf2914qubqiil03ok70ujc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcVetjNA0UpgWN6f45sxTWAPBMI1IlNWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452362569397-re4i0tiq5qf2914qubqiil03ok70ujc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

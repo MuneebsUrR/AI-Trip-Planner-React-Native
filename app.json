@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.vanilla_icee.aitravelplanner"
     },
     "web": {
       "bundler": "metro",
@@ -27,29 +28,19 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-font",
-        {
-          "fonts": [
-            {
-              "asset": "./assets/fonts/Outfit-Regular.ttf",
-              "family": "outfit"
-            },
-            {
-              "asset": "./assets/fonts/Outfit-Medium.ttf",
-              "family": "outfit-medium"
-            },
-            {
-              "asset": "./assets/fonts/Outfit-Bold.ttf",
-              "family": "outfit-bold"
-            }
-          ]
-        }
-      ]
+      "expo-router"
+      
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "7c11e30c-2b42-46bf-b5d4-426ee438cbd0"
+      }
     }
   }
 }
