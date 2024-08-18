@@ -4,8 +4,8 @@ import { router, useNavigation } from 'expo-router'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { CreateTripContext } from '../../context/CreateTripContext';
 export default function SearchPlace() {
-    const navigation = useNavigation();
     const { tripData, setTripData } = useContext(CreateTripContext);
+    const navigation = useNavigation();
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: true,

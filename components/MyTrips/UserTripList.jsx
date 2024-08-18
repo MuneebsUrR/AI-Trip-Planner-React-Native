@@ -3,6 +3,7 @@ import React from 'react'
 import moment from 'moment';
 import { Colors } from '../../constants/Colors';
 import UserTripCard from './UserTripCard';
+import { router } from 'expo-router';
 export default function UserTripList({ userTrips }) {
     const TripDetails = JSON.parse(userTrips[0]?.tripData);
 
@@ -35,7 +36,11 @@ export default function UserTripList({ userTrips }) {
                 </Text>
 
             </View>
-            <TouchableOpacity style={{ marginVertical: 10, backgroundColor: Colors.PRIMARY, padding: 14, borderRadius: 10 }}>
+            <TouchableOpacity onPress={() => router.push({
+                pathname: '/trip-details/TripDetails', params: {
+                    tripData: JSON.stringify(TripDetails), tripPlan: JSON.stringify(userTrips[0]?.tripPlan)
+                }
+            })} style={{ marginVertical: 10, backgroundColor: Colors.PRIMARY, padding: 14, borderRadius: 10 }}>
                 <Text style={{ color: 'white', fontFamily: 'outfit-medium', textAlign: 'center' }}>
                     See your plan
                 </Text>
@@ -48,7 +53,11 @@ export default function UserTripList({ userTrips }) {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => (
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => router.push({
+                            pathname: '/trip-details/TripDetails', params: {
+                                tripData: item?.tripData, tripPlan: JSON.stringify(item?.tripPlan)
+                            }
+                        })}>
                             <UserTripCard data={item} />
                         </TouchableOpacity>
                     )}
