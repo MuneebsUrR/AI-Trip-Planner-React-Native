@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Linking } from 'react-native'
 import React from 'react'
 import { Colors } from '../../constants/Colors'
 
@@ -10,7 +10,7 @@ export default function FlightInfo({ flightData }) {
                 <Text style={{ fontFamily: 'outfit', fontSize: 17, marginTop: 7 }}>Airline: {flightData?.airline}</Text>
                 <Text style={{ fontFamily: 'outfit', fontSize: 17, marginTop: 7 }}>Price: {flightData?.price}$</Text>
             </View>
-            <TouchableOpacity style={{ backgroundColor: Colors.PRIMARY, padding: 6, width: 100, borderRadius: 10 }}>
+            <TouchableOpacity onPress={()=>{Linking.openURL(flightData?.bookingUrl)}} style={{ backgroundColor: Colors.PRIMARY, padding: 6, width: 100, borderRadius: 10 }}>
                 <Text style={{ textAlign: 'center', fontFamily: 'outfit-medium', color: 'white' }}>
                     Book Here
                 </Text>
