@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-// import '../create-trips/SearchPlace'
+import SearchPlace from '../create-trips/SearchPlace'
 export default function Discover() {
   return (
-    <View>
-
+    <View style={{flex:1}}>
+      <SearchPlace/>
     </View>
   )
 }
