@@ -6,7 +6,7 @@ import { Colors } from '../../constants/Colors'
 export default function TabLayout() {
     return (
 
-        <View style={{ height: '100%' }}>
+        <View style={{ flex:1 }}>
             <StatusBar barStyle={'dark-content'} />
 
             <Tabs screenOptions={{

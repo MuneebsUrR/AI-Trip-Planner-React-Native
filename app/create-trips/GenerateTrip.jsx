@@ -22,17 +22,17 @@ export default function GenerateTrip() {
         const result = await chatSession.sendMessage(FinalPrompt);
 
         const data = JSON.parse(result.response.text());
-        console.log(data);
         const user = auth.currentUser;
         const docid = (Date.now()).toString();
         const submit = await setDoc(doc(db, "UserTrip", docid), {
             userEmail: user.email,
-            trip: data
+            tripPlan: data, //Ai Result
+            tripData: JSON.stringify(tripData), //User Data
+            docId: docid
         })
 
         setLoading(false);
-
-
+        tripData && setTripData(null);
         router.replace("(tabs)/MyTrip");
 
 

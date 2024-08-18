@@ -14,7 +14,7 @@ export default function StartNewTripCard() {
             gap: 25
         }}>
 
-            <Ionicons name="location" size={40} color="black" />
+            <Ionicons name="location" size={35} color="black" />
             <Text style={{
                 fontFamily: 'outfit-bold',
                 textAlign: 'center',
