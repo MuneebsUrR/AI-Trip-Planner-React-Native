@@ -12,22 +12,20 @@ import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
 
 WebBrowser.maybeCompleteAuthSession();
-const redirectUri = makeRedirectUri({
-  useProxy: true,  
-});
 
 export default function index() {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
     webClientId: `125804255437-mg26jdvk93goabtpnrjk6mg057ah6ep6.apps.googleusercontent.com`,
+    clientId:'125804255437-mg26jdvk93goabtpnrjk6mg057ah6ep6.apps.googleusercontent.com',
     androidClientId: `125804255437-v2g1dlbmj3t5mnpe3bujg2b558vduc5u.apps.googleusercontent.com`,
     scopes: ['profile', 'email'],
-    redirectUri: redirectUri
+   
   });
   const navigation = useNavigation();
 
-console.log('id',process.env.GOOGLE_ANDROID_CLIENT_ID)
+  console.log('id', process.env.GOOGLE_ANDROID_CLIENT_ID)
 
   useEffect(() => {
     if (response?.type === 'success') {
