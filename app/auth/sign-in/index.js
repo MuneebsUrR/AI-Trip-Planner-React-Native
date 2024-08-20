@@ -15,9 +15,10 @@ WebBrowser.maybeCompleteAuthSession();
 export default function index() {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    webClientId: '125804255437-mg26jdvk93goabtpnrjk6mg057ah6ep6.apps.googleusercontent.com',
-    androidClientId: '125804255437-v2g1dlbmj3t5mnpe3bujg2b558vduc5u.apps.googleusercontent.com',
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    webClientId: `${process.env.GOOGLE_WEB_CLIENT_ID}`,
+    androidClientId: `${process.env.GOOGLE_ANDROID_CLIENT_ID}`,
+    scopes: ['profile', 'email'],
   });
   const navigation = useNavigation();
 
@@ -103,7 +104,7 @@ export default function index() {
         <TouchableOpacity onPress={googleSignIn} style={styles.buttonContent}>
           <View style={styles.iconTextWrapper}>
             <Text style={styles.googleButtonText}>Sign In with Google</Text>
-           <Image source={require('../../../assets/images/googleicon.png')} style={{ width: 30, height: 30 }} />
+            <Image source={require('../../../assets/images/googleicon.png')} style={{ width: 30, height: 30 }} />
           </View>
         </TouchableOpacity>
       </View>

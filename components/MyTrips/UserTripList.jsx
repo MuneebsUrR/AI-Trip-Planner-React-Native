@@ -5,6 +5,8 @@ import { Colors } from '../../constants/Colors';
 import UserTripCard from './UserTripCard';
 import { router } from 'expo-router';
 export default function UserTripList({ userTrips }) {
+    //reversing the user trips to show the latest trip first
+    userTrips = userTrips.reverse();
     const TripDetails = JSON.parse(userTrips[0]?.tripData);
 
     return (

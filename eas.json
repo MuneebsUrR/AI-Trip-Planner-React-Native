@@ -15,7 +15,12 @@
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_GEMINI_API": "AIzaSyBU_bG2e_m44J8upEkItste2Ozso9-EoiM",
-        "EXPO_PUBLIC_GOOGLE_MAPS_KEY": "AIzaSyDnC-IyOb0pEReF-Z9YVbBef8laHZxJsnE"
+        "EXPO_PUBLIC_GOOGLE_MAPS_KEY": "AIzaSyDnC-IyOb0pEReF-Z9YVbBef8laHZxJsnE",
+        "GOOGLE_ANDROID_CLIENT_ID" : "125804255437-v2g1dlbmj3t5mnpe3bujg2b558vduc5u.apps.googleusercontent.com",
+        "GOOGLE_WEB_CLIENT_ID" : "125804255437-mg26jdvk93goabtpnrjk6mg057ah6ep6.apps.googleusercontent.com"
+      },
+      "android":{
+        "buildType": "apk"
       }
     },
     "production": {
