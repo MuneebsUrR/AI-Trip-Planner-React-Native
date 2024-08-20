@@ -4,6 +4,7 @@ import { Colors } from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
 
+
 export default function Login() {
     const height = useWindowDimensions().height;
     //40% of the height 

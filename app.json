@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ai-travel-planner",
-    "slug": "ai-travel-planner",
+    "name": "TourMate",
+    "slug": "TourMate",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,14 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vanilla_icee.TourMate"
     },
     "android": {
+      "package": "com.vanilla_icee.TourMate",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.vanilla_icee.aitravelplanner"
+      }
     },
     "web": {
       "bundler": "metro",
@@ -29,7 +30,6 @@
     },
     "plugins": [
       "expo-router"
-      
     ],
     "experiments": {
       "typedRoutes": true
@@ -39,7 +39,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "7c11e30c-2b42-46bf-b5d4-426ee438cbd0"
+        "projectId": "78b7d62b-f089-469e-b55c-09b5940e49aa"
       }
     }
   }
