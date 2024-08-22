@@ -15,6 +15,14 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```bash
     npx expo start
    ```
+3. Create .env
+
+   ```bash
+    EXPO_PUBLIC_GEMINI_API=
+    EXPO_PUBLIC_GOOGLE_MAPS_KEY=
+    GOOGLE_ANDROID_CLIENT_ID=
+    GOOGLE_WEB_CLIENT_ID=
+   ```
 
 In the output, you'll find options to open the app in a
 
